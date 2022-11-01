@@ -1,0 +1,15 @@
+//Database Manipulation Language
+//insert example
+
+Account acc= new Account();
+acc.Name= 'Inserted Account';
+acc.Industry ='Consulting';
+acc.NumberOfEmployees=2000;
+insert acc;
+list<Account> accList = new list<Account>();
+Account acc1= new Account (Name='acc1');
+insert acc1;
+Account acc2= new Account (Name='acc2');
+insert acc2;
+Account acc3= new Account (Name='acc3');
+insert acc3;
