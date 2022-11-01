@@ -1,0 +1,7 @@
+Account accToBeDeleted = [SELECT Id, Name FROM Account WHERE Name='acc13'LIMIT 1];
+delete accToBeDeleted; // Soft deletion
+//Delete-Recycle Bin 15 Days reachable
+
+/////=========================
+//Undelete-Use ALL ROWS at the end of query
+Account accToBeUnDeleted = [SELECT Id, Name FROM Account WHERE Name='acc13'LIMIT 1 ALL ROWS];
