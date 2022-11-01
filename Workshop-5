@@ -1,0 +1,47 @@
+1.
+Account a= new Account();
+a.Name='Sara Maple';
+a.Phone='3108789077';
+a.Website= 'www.saramaple.com';
+a.AnnualRevenue= 100000;
+a.Description= 'This is Sara/s account';
+a.Industry= 'Education';
+insert a;
+
+2. 
+Account updtAcct =[SELECT Name,Website, Description, Industry FROM Account WHERE Name LIKE 'Sara Maple'];
+updtAcct.Website = 'www.mynewwebsite.com';
+updtAcct.Description= 'This is my updated account';
+updtAcct.Industry='Consulting';
+update updtAcct;
+
+3.Account upsrtAcct =[SELECT Name,Website, Description, Industry FROM Account WHERE Name LIKE 'Sara Maple'];
+upsrtAcct.Rating = 'Hot';
+upsrtAcct.Description= 'This is senior developer account';
+upsrtAcct.AnnualRevenue=200000;
+upsert upsrtAcct;
+4. Account deleteAcct =[SELECT Name,Website, Description, Industry FROM Account WHERE Name LIKE 'Sara Maple'];
+delete deleteAcct;
+
+5.Account undeleteAcct =[SELECT Name,Website, Description, Industry FROM Account WHERE Name LIKE 'Sara Maple' LIMIT 1 ALL ROWS];
+undelete undeleteAcct;
+
+6. 
+List <Account> workshopAccs = new list <Account>();
+for(integer a=1;a<=5;a++){
+	Account newAcc = new Account();
+    newAcc.name= 'Workshop' +a;
+   	workshopAccs.add(newAcc);
+    
+}	   
+insert workshopAccs;
+
+7. List <Account> uptAccs = [SELECT Id,Name FROM Account WHERE Name LIKE '%Workshop%'];
+for(Account a :uptAccs){
+    a.Description= 'This is a bulk inserted account sample';   	    
+}	   
+update uptAccs;
+
+8. Account master= [SELECT Id, Name FROM Account WHERE Name = 'Workshop1' LIMIT 1];
+Account secondRecord= [SELECT Id, Name FROM Account WHERE Name = 'Workshop2'LIMIT 1];
+merge master secondRecord;
