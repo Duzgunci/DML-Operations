@@ -1,0 +1,77 @@
+DATABASE
+insert Acc1;
+Database.insert(Acc1, false);
+Database.insert(Acc1, true); // partial success allowed
+//////////
+Database.SaveResult // insert and update
+Database.UpsertResult 
+Database.DeleteResult
+Database.UndeleteResult
+Database.MergeResult
+
+Database.update();
+Database.delete();
+///////
+list<Account> accList = new list<Account>();
+Account acc51= new Account (Name='acc51');
+Account acc52= new Account (Name='acc52');
+Account acc53= new Account (Name='acc53');
+
+accList.add(acc51);
+accList.add(acc52);
+accList.add(acc53);
+
+list <Database.SaveResult> resultInsert= Database.insert(accList,true);
+system.debug(resultInsert);
+
+list<Account> accList = new list<Account>();
+Account acc51= new Account (Name='acc51');
+Account acc52= new Account (Name='acc52');
+Account acc53= new Account (Name='acc53');
+accList.add(acc51);
+accList.add(acc52);
+accList.add(acc53);
+Database.insert(accList,true);
+////==========================================================
+list<Account> accList = [SELECT Id, Name FROM Account WHERE Name IN ('acc11', 'acc13') ALL ROWS];
+list <Database.UndeleteResult> resultUndelete= Database.undelete(accList,true);
+system.debug(resultUndelete);
+
+
+Class: 
+
+public class CreateAccount {
+	//variables-buckets holds data
+	//methods-actions
+	
+    public static void createNewAccount(String accName){
+       Account acc =  new Account(Name= accName);
+       acc.Name = accName;
+       insert acc;
+        
+    }        
+}
+
+Debug:
+CreateAccount.createNewAccount('Account Created by Method');
+public class CreateAccount {
+	//variables-buckets holds data
+	//methods-actions
+	
+    public void createNewAccount(String accName){
+       Account acc =  new Account(Name= accName);
+       acc.Name = accName;
+       insert acc;
+        
+    }  
+}
+
+Debug:
+CreateAccount newAcc = new CreateAccount();
+newAcc.createNewAccount('Account Created by Method2');
+
+
+
+
+
+
