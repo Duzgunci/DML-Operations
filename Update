@@ -1,0 +1,26 @@
+Account acc6 =[SELECT Id, Name FROM Account WHERE Name = 'acc6' LIMIT 1];
+acc6.Name = 'acc6 Updated';
+update acc6;
+/////////////////=====================================
+List<string> list1 = new list<string>();
+string a = 'test1';
+string b = 'test2';
+string c = 'test3';
+list1.add(a);
+list1.add(b);
+list1.add(c);
+system.debug(list1);    
+list <string> list2= new list <string>();
+string d = 'test4';
+list2.add(d);
+system.debug(list2);    
+list2.addAll(list1);
+system.debug(list2);
+///////====================
+Account accToBeUpdated = [SELECT Id, Name FROM Account WHERE Name='acc1'LIMIT 1];
+accToBeUpdated.Name= 'acc10';
+Account accToBeCreated= new Account (Name= 'acc11');
+list <Account> listAccs = new list <Account>();
+listAccs.add(accToBeUpdated);
+listAccs.add(accToBeCreated);
+upsert listAccs;
