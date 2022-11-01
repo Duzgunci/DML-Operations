@@ -1,0 +1,8 @@
+//Merge- merging records into single record-up to 3 records can be merged in one time
+merge masterRecord mergedRecord1 (single or list);
+
+//Merge- merging records into single record-up to 3 records can be merged in one time
+Account master= [SELECT Id, Name FROM Account WHERE Name = 'acc11' LIMIT 1];
+list<Account> accList= [SELECT Id, Name FROM Account WHERE Name = 'acc13'OR Name = 'acc14'];
+merge master accList;
+//merge masterRecord mergedRecord1 (single or list);
