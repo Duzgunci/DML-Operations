@@ -1,0 +1,14 @@
+Account acc=new Account();
+acc.Name= 'New Account From Programmatic Tool';
+insert acc; //Save button
+       Account updateAcc= [SELECT Id, Name FROM Account WHERE Name = 'New Account From Programmatic Tool'LIMIT 1];
+updateAcc.Name= 'New Account from Pro Tool Updated';
+update updateAcc; // Edit button
+
+Account deleteAcc= [SELECT Id, Name FROM Account WHERE Name = 'New Account from Pro Tool Updated'LIMIT 1];
+delete deleteAcc; //Delete Button
+
+Account undeleteAcc= [SELECT Id, Name FROM Account WHERE Name = 'New Account from Pro Tool Updated'LIMIT 1 ALL ROWS];
+undelete undeleteAcc; //Bringing from recycling bin
+//upsert research database first, if data is not there then create it
+
