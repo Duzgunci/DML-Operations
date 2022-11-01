@@ -1,0 +1,9 @@
+//insert list example-Bulkification
+list<Account> accList = new list<Account>();
+Account acc4= new Account (Name='acc4');
+Account acc5= new Account (Name='acc5');
+Account acc6= new Account (Name='acc6');
+accList.add(acc4);
+accList.add(acc5);
+accList.add(acc6);
+insert accList;
